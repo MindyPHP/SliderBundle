@@ -29,20 +29,25 @@ class Slider extends Model
         return [
             'name' => [
                 'class' => CharField::class,
+                'verboseName' => 'Название',
             ],
             'description' => [
                 'class' => TextField::class,
                 'null' => true,
+                'verboseName' => 'Описание',
             ],
             'group' => [
                 'class' => CharField::class,
+                'verboseName' => 'Группа',
             ],
             'image' => [
                 'class' => ImageField::class,
+                'verboseName' => 'Изображение',
             ],
             'url' => [
                 'class' => CharField::class,
                 'null' => true,
+                'verboseName' => 'Ссылка',
             ],
         ];
     }

@@ -16,6 +16,8 @@ use Mindy\Bundle\SliderBundle\Model\Slider;
 
 class SliderAdmin extends AbstractModelAdmin
 {
+    public $columns = ['name', 'group'];
+
     /**
      * @return string model class name
      */
