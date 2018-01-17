@@ -1,21 +1,24 @@
 <?php
+
+declare(strict_types=1);
+
 /*
- * (c) Studio107 <mail@studio107.ru> http://studio107.ru
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * Studio 107 (c) 2018 Maxim Falaleev
  *
- * Author: Maxim Falaleev <max@studio107.ru>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Mindy\Bundle\SliderBundle\Form;
 
-use Mindy\Bundle\AdminBundle\Form\Type\ButtonsType;
 use Mindy\Bundle\FormBundle\Form\Type\FileType;
+use Mindy\Bundle\SliderBundle\Model\Slider;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Mindy\Bundle\SliderBundle\Model\Slider;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class SliderForm extends AbstractType
@@ -24,9 +27,9 @@ class SliderForm extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Название'
+                'label' => 'Название',
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Описание',
                 'required' => false,
             ])
@@ -35,32 +38,29 @@ class SliderForm extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new Assert\Image([
-                        'maxHeight' => 1280,
-                        'maxWidth' => 1920,
-                        'minHeight' => 100,
-                        'minWidth' => 100,
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
-                        ]
-                    ])
-                ]
+                        ],
+                    ]),
+                ],
             ])
             ->add('group', TextType::class, [
-                'label' => 'Группа'
+                'label' => 'Группа',
             ])
             ->add('url', TextType::class, [
                 'label' => 'Ссылка',
                 'required' => false,
             ])
-            ->add('buttons', ButtonsType::class);
+            ->add('submit', SubmitType::class, [
+                'label' => 'Сохранить',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Slider::class
+            'data_class' => Slider::class,
         ]);
     }
-
 }

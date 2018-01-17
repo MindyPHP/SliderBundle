@@ -1,19 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * (c) Studio107 <mail@studio107.ru> http://studio107.ru
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
+ * Studio 107 (c) 2018 Maxim Falaleev
  *
- * Author: Maxim Falaleev <max@studio107.ru>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Mindy\Bundle\SliderBundle\Library;
 
-use Mindy\Template\Library;
 use Mindy\Bundle\SliderBundle\Model\Slider;
+use Mindy\Template\Library\AbstractLibrary;
 
-class SliderLibrary extends Library
+class SliderLibrary extends AbstractLibrary
 {
     /**
      * @return array
@@ -24,14 +25,10 @@ class SliderLibrary extends Library
             'get_slides' => function ($group) {
                 return Slider::objects()->filter(['group' => $group])->all();
             },
+            'get_slide_random' => function ($group) {
+                return Slider::objects()->limit(1)->offset(0)
+                    ->order(['?'])->get(['group' => $group]);
+            },
         ];
-    }
-
-    /**
-     * @return array
-     */
-    public function getTags()
-    {
-        return [];
     }
 }

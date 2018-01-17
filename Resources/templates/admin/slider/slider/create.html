@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+
+{% block breadcrumbs %}
+    {% set breadcrumbs = [
+    ['name' => 'Слайды', 'url' => url('admin_rise_slider_slider_list')],
+    ['name' => 'Добавление слайда']
+    ] %}
+    {% parent %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="b-heading">Добавление слайда</h1>
+    {{ form_render(form)|safe }}
+{% endblock %}
