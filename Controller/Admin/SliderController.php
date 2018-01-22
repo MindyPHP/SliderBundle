@@ -34,7 +34,7 @@ class SliderController extends Controller
 
         $form = $this->createForm(SliderForm::class, $slider, [
             'method' => 'POST',
-            'action' => $this->generateUrl('admin_rise_slider_slider_create'),
+            'action' => $this->generateUrl('admin_slider_slider_create'),
         ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -44,7 +44,7 @@ class SliderController extends Controller
 
             $this->addFlash('success', 'Успешно сохранено');
 
-            return $this->redirectToRoute('admin_rise_slider_slider_list');
+            return $this->redirectToRoute('admin_slider_slider_list');
         }
 
         return $this->render('admin/slider/slider/create.html', [
@@ -61,7 +61,7 @@ class SliderController extends Controller
 
         $form = $this->createForm(SliderForm::class, $slider, [
             'method' => 'POST',
-            'action' => $this->generateUrl('admin_rise_slider_slider_update', ['id' => $id]),
+            'action' => $this->generateUrl('admin_slider_slider_update', ['id' => $id]),
         ]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -71,7 +71,7 @@ class SliderController extends Controller
 
             $this->addFlash('success', 'Успешно сохранено');
 
-            return $this->redirectToRoute('admin_rise_slider_slider_list');
+            return $this->redirectToRoute('admin_slider_slider_list');
         }
 
         return $this->render('admin/slider/slider/update.html', [
@@ -93,6 +93,6 @@ class SliderController extends Controller
 
         $this->addFlash('success', 'Успешно удалено');
 
-        return $this->redirectToRoute('admin_rise_slider_slider_list');
+        return $this->redirectToRoute('admin_slider_slider_list');
     }
 }
