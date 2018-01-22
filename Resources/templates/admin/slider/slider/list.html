@@ -10,7 +10,7 @@
 {% block content %}
     <h1 class="b-heading">Слайды</h1>
 
-    <a href="{{ url('admin_rise_slider_slider_create') }}" class="b-button">Добавить слайд</a>
+    <a href="{{ url('admin_slider_slider_create') }}" class="b-button">Добавить слайд</a>
 
     <table class="b-table">
         <thead class="b-table__thead">
@@ -27,12 +27,12 @@
                 {% include "admin/slider/slider/_slider_row.html" with ['slide' => slide] %}
                 <td class="b-table__td b-td__actions">
                     <a class="b-td__link"
-                       href="{{ url('admin_rise_slider_slider_update', ['id' => slide.id]) }}" title="Изменить">
+                       href="{{ url('admin_slider_slider_update', ['id' => slide.id]) }}" title="Изменить">
                         <span class="b-icon">&#xE254;</span>
                     </a>
                     <a class="b-td__link"
                        data-confirm="Удалить заказ?"
-                       href="{{ url('admin_rise_slider_slider_remove', ['id' => slide.id]) }}" title="Удалить">
+                       href="{{ url('admin_slider_slider_remove', ['id' => slide.id]) }}" title="Удалить">
                         <span class="b-icon">&#xE872;</span>
                     </a>
                 </td>

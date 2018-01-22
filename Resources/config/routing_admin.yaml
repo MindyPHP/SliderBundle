@@ -1,21 +1,21 @@
-admin_rise_slider_slider_create:
+admin_slider_slider_create:
     path: /create
     defaults:
         _controller: \Mindy\Bundle\SliderBundle\Controller\Admin\SliderController::create
 
-admin_rise_slider_slider_list:
+admin_slider_slider_list:
     path: /list
     defaults:
         _controller: \Mindy\Bundle\SliderBundle\Controller\Admin\SliderController::list
 
-admin_rise_slider_slider_update:
+admin_slider_slider_update:
     path: /update/{id}
     defaults:
         _controller: \Mindy\Bundle\SliderBundle\Controller\Admin\SliderController::update
     requirements:
         id: \d+
 
-admin_rise_slider_slider_remove:
+admin_slider_slider_remove:
     path: /remove/{id}
     defaults:
         _controller: \Mindy\Bundle\SliderBundle\Controller\Admin\SliderController::remove
